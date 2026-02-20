@@ -1,0 +1,9 @@
+opencv-python>=4.9.0
+Pillow>=10.0.0
+numpy>=1.23.5,<2
+torch>=2.0.0
+facenet-pytorch>=2.5.3
+easyocr>=1.7.0
+google-genai>=1.0.0
+mediapipe>=0.10.0
+python-dotenv>=1.0.0

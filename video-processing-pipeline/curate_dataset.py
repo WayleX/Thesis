@@ -10,14 +10,16 @@ Selection rules:
 Outputs:
   - <output>/ClassName/video.mp4    – copied videos in class folders
   - <output>/selected_entries.jsonl  – full metadata for selected videos
-  - curation_stats.csv               – ethnicity / gender / source breakdowns
+  - curation_stats.csv (or custom path)  – ethnicity / gender / source breakdowns
 
 Usage:
     python curate_dataset.py \\
         --input /path/to/filtered_videos \\
         --jsonl classification_results.jsonl \\
         --output /path/to/curated_output \\
-        --per-class 100
+        --per-class 100 \\
+        --seed 42 \\
+        --stats-csv curation_stats.csv
 """
 
 import sys

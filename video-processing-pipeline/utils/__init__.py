@@ -9,5 +9,4 @@ Modules:
     face_detection  – MTCNN GPU-accelerated face counting
     encoding        – FFmpeg / NVENC video encoding
     curation        – Ethnicity balancing, speaker dedup, stats reports
-    analysis        – MediaPipe head-pose, lighting, and motion metrics
 """

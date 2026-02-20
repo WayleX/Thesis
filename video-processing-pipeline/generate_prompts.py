@@ -12,13 +12,19 @@ Features:
   - Exponential backoff on transient errors
   - Auto-resume via JSONL
   - Parallel workers
+  - Optional first-frame extraction to directory
+
+Environment:
+  - Requires GEMINI_API_KEY set in .env file or as environment variable
 
 Usage:
     python generate_prompts.py \\
         --input /path/to/curated_dataset \\
         --output prompts.csv \\
         --output-json prompts.jsonl \\
-        --model-context "Kling 2.1: short 1-2 sentence prompts, focus on motion"
+        --frames-dir /path/to/frames \\
+        --model-context "Kling 2.1: short 1-2 sentence prompts, focus on motion" \\
+        --workers 5
 """
 
 import os
