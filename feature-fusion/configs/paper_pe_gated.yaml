@@ -1,0 +1,4 @@
+fusion: gated
+name: paper_pe_gated
+use_paper: true
+use_pe: true

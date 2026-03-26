@@ -1,0 +1,5 @@
+fusion: concat
+name: paper_pe_depth_concat
+use_depth: true
+use_paper: true
+use_pe: true

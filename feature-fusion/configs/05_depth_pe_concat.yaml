@@ -1,0 +1,4 @@
+name: 05_depth_pe_concat
+use_depth: true
+use_pe: true
+fusion: concat

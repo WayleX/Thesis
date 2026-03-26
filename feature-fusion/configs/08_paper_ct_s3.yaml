@@ -1,0 +1,7 @@
+ct_n_windows: 5
+ct_stride: 3
+ct_window_size: 10
+fusion: concat
+name: 08_paper_ct_s3
+use_ct: true
+use_paper: true

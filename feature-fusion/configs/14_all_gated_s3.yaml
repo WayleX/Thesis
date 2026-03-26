@@ -1,0 +1,9 @@
+ct_n_windows: 5
+ct_stride: 3
+ct_window_size: 10
+fusion: gated
+name: 14_all_gated_s3
+use_ct: true
+use_depth: true
+use_paper: true
+use_pe: true

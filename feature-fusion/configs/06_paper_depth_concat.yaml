@@ -1,0 +1,4 @@
+name: 06_paper_depth_concat
+use_paper: true
+use_depth: true
+fusion: concat

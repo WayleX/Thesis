@@ -1,0 +1,4 @@
+name: 11_depth_pe_gated
+use_depth: true
+use_pe: true
+fusion: gated

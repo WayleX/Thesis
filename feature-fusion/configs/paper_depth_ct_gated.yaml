@@ -1,0 +1,8 @@
+ct_n_windows: 5
+ct_stride: 3
+ct_window_size: 10
+fusion: gated
+name: paper_depth_ct_gated
+use_ct: true
+use_depth: true
+use_paper: true

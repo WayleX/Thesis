@@ -1,0 +1,5 @@
+ct_n_windows: 5
+ct_stride: 3
+ct_window_size: 10
+name: 04_ct_s3
+use_ct: true

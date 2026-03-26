@@ -1,0 +1,4 @@
+name: 12_paper_depth_gated
+use_paper: true
+use_depth: true
+fusion: gated

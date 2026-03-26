@@ -1,0 +1,4 @@
+name: 07_paper_pe_concat
+use_paper: true
+use_pe: true
+fusion: concat
