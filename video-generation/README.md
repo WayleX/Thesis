@@ -1,19 +1,18 @@
 # DeepFake Dataset Generation
 
-### 1. Download the dataset
+## 1. Download the Dataset
 
 ```bash
 bash download_dataset.sh
 ```
-If script is not working, you can do it manually
 
+> If the script doesn't work, you can download the dataset manually.
 
+---
 
-### 2. Model setup
+## 2. Model Setup
 
-Basically setup.sh scripts
-
-As of now it clones repos and installs requirements into venv + some fixes
+Run the setup scripts to clone repositories and install dependencies into virtual environments.
 
 ```bash
 # Wan2.2
@@ -23,76 +22,76 @@ bash Wan2/setup.sh
 bash Hunyuan/setup.sh
 ```
 
-Here it is just simple setupping, works on cuda under 13.0, 13.0 didn't test properly
+**Compatibility:** Works with CUDA < 13.0 (CUDA 13.0 not fully tested)
 
-#### Hunyuan
+### Hunyuan Setup
 
+- Clones the repository and creates a virtual environment
+- Installs default requirements with overrides for `flash-attn` and `diffusers`
+- Requires swapping a diffusers file for proper `flash-attn` utilization
 
-For Hunyuan it clones repo, creates venv, takes default requirements + few overrides (flash-attn, diffusers) in bash script
+### Wan Setup
 
-Also it needs to swap diffusers file as current implementation doesnt correctly utilize flash-attn
+- Clones the repository and creates a virtual environment
+- Installs requirements and `flash-attn` for optimal performance
 
-#### Wan
+---
 
-For Wan, it clones repo, creates venv, installs requirements, install flash-attn that worked
+## 3. Generate Videos
 
+Both models support two generation modes:
 
-### 3. Generate videos
+| Mode | Description |
+|------|-------------|
+| `i2v` (default) | **Image-to-video**: Uses the first frame from the dataset as conditioning |
+| `t2v` | **Text-to-video**: Generates purely from text prompt, no image input |
 
-Both models support two modes via `--mode`:
-- `i2v` (default) — **image-to-video**: uses the first frame from the dataset as a conditioning image
-- `t2v` — **text-to-video**: generates purely from the text prompt, no image input
+**Model sizes:** Wan2 supports 5B and 14B models (choose one)
 
-For wan we have 5b model and 14b model, you need to choose one
+### Activate Virtual Environments
 
 ```bash
+# Wan2.2
 source Wan2/Wan2.2/venv/bin/activate
 
+# HunyuanVideo 1.5
 source Hunyuan/HunyuanVideo-1.5/venv/bin/activate
-
 ```
 
-#### Wan2.2
-
-generate.sh is basically parsing input, activating venv and launching python file
-
-You can actually launch python directly if you want, or use generate_multiple
+### Wan2.2 Examples
 
 ```bash
-# I2V (default) — 14B model
+# Text-to-video with 14B model (default)
 bash Wan2/generate.sh --mode t2v
 
+# Image-to-video with 14B model
 bash Wan2/generate.sh --mode i2v
 
-#small model
+# Text-to-video with 5B model
 bash Wan2/generate.sh --mode t2v --model-size 5b
 
+# Image-to-video with 5B model
 bash Wan2/generate.sh --mode i2v --model-size 5b
 
+# Generate multiple videos on multiple GPUs
 bash Wan2/generate_multiple.sh --mode t2v --model-size 5b --gpus 0,1
 
-
-
-# I2V — 5B model with custom paths (only absoulte paths probably, didnt check relative sorry)
+# Custom paths (use absolute paths)
 bash Wan2/generate.sh --model-size 5b --dataset-dir /data/dataset --output-dir /data/output
-
 ```
 
-
-#### HunyuanVideo 1.5
-
-generate.sh is basically parsing input, activating venv and launching python file
-
-You can actually launch python directly if you want, or use generate_multiple
-
+### HunyuanVideo 1.5 Examples
 
 ```bash
+# Default generation
 bash Hunyuan/generate.sh
 
+# Text-to-video
 bash Hunyuan/generate.sh --mode t2v
 
+# Text-to-video with custom output directory
 bash Hunyuan/generate.sh --mode t2v --output-dir /data/t2v_output
 
+# Generate multiple videos on multiple GPUs
 bash Hunyuan/generate_multiple.sh --mode t2v --gpus 0,1
-
 ```
