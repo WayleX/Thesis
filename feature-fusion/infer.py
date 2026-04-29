@@ -42,7 +42,7 @@ sys.path.insert(0, str(BASE))
 
 DFD_FCG_ROOT = Path("/extra_space2/shykula/gg/Repos/DFD-FCG")
 DFD_FCG_CKPT = DFD_FCG_ROOT / "checkpoint" / "weights.ckpt"
-PE_ROOT = Path("/extra_space2/shykula/perception_models")
+PE_ROOT = Path("/home/sshyku/src/perception_models")
 
 VIDEO_EXTS = {".mp4", ".avi", ".mov", ".mkv", ".webm"}
 
@@ -465,13 +465,13 @@ def process_ct_features(tracks, visibility, cfg):
 def load_detector(cfg, ckpt_path, device):
     from train_exp import ExpDetector
     try:
-        m = ExpDetector.load_from_checkpoint(str(ckpt_path), cfg=cfg)
+        m = ExpDetector.load_from_checkpoint(str(ckpt_path), map_location=device, cfg=cfg)
         return m.eval().to(device)
     except Exception:
         pass
     from models.detector import DeepfakeDetector
     return DeepfakeDetector.load_from_checkpoint(
-        str(ckpt_path), cfg=cfg).eval().to(device)
+        str(ckpt_path), map_location=device, cfg=cfg).eval().to(device)
 
 
 def find_checkpoint(cfg):

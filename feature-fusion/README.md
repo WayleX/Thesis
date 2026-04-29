@@ -28,6 +28,7 @@ Make sure you have all required dependencies installed for training and feature 
 ```bash
 pip install -r requirements.txt
 ```
+Also you need to make sure that you have correctly setuped all the models fusion of which you want to use. More on this in MODELS_SETUP.md
 
 ### 2. Feature Extraction
 Before training, you need to extract the corresponding features for each branch from your dataset. Use the scripts in `data/extract/`.
@@ -55,7 +56,7 @@ python evaluate.py --config configs/11_depth_pe_gated.yaml --ckpt /path/to/check
 ```
 
 ### 5. Inference
-For inference on a single video or a folder of videos (faces are automatically detected and features extracted):
+For inference on a single video or a folder of videos. Note that you need to setup all the models, detailed in MODELS_SETUP.md:
 ```bash
 python infer.py --config configs/11_depth_pe_gated.yaml --ckpt /path/to/checkpoint.ckpt --input /path/to/sample/video.mp4
 ```

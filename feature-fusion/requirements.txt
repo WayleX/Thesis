@@ -9,3 +9,5 @@ numpy>=1.24.0
 opencv-python>=4.8.0
 face-alignment>=1.4.0
 timm>=0.9.0
+transformers>=4.40.0
+huggingface_hub>=0.23.0
