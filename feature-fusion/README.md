@@ -28,8 +28,17 @@ Make sure you have all required dependencies installed for training and feature 
 ```bash
 pip install -r requirements.txt
 ```
-Also you need to make sure that you have correctly setuped all the models fusion of which you want to use. More on this in MODELS_SETUP.md
+Also you need to make sure that you have correctly set up all the models whose fusion you want to use. See [MODELS_SETUP.md](MODELS_SETUP.md) for the full reproducibility guide.
 
+### Inference
+For inference on a single video or a folder of videos. See [INFERENCE_GUIDE.md](INFERENCE_GUIDE.md) for the full setup walkthrough:
+```bash
+python infer.py --config configs/11_depth_pe_gated.yaml --ckpt /path/to/checkpoint.ckpt --input /path/to/sample/video.mp4
+```
+> **Running inference on new videos?** See [INFERENCE_GUIDE.md](INFERENCE_GUIDE.md) for a complete step-by-step walkthrough: environment setup, cloning external repos, downloading checkpoints, which lines to change for a new machine, and example commands for all concat-fusion configs.
+
+
+### Training pipeline
 ### 2. Feature Extraction
 Before training, you need to extract the corresponding features for each branch from your dataset. Use the scripts in `data/extract/`.
 ```bash
@@ -56,7 +65,7 @@ python evaluate.py --config configs/11_depth_pe_gated.yaml --ckpt /path/to/check
 ```
 
 ### 5. Inference
-For inference on a single video or a folder of videos. Note that you need to setup all the models, detailed in MODELS_SETUP.md:
+For inference on a single video or a folder of videos. See [INFERENCE_GUIDE.md](INFERENCE_GUIDE.md) for the full setup walkthrough:
 ```bash
 python infer.py --config configs/11_depth_pe_gated.yaml --ckpt /path/to/checkpoint.ckpt --input /path/to/sample/video.mp4
 ```
